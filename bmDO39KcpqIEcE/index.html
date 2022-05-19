@@ -1,0 +1,164 @@
+
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <title>My Test Video</title>
+  <style media="screen">
+  *{outline: none}
+  video{
+    width: 100%;
+  }
+  body{
+    background: purple;
+    color: white;
+  }
+
+  .center{
+    display: flex;
+    position: absolute;
+    align-items: center;
+    width: 100%;
+  }
+  #passwordcontainer{
+  }
+  .container{position: relative;margin: auto;width: 80%}
+  #in{
+    padding: 10px;
+  border-color: transparent;
+  text-align: center;
+  margin: 0;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  -ms-transform: translate(-50%, -50%);
+  transform: translate(-50%, -50%);}
+  #in:focus{}
+  </style>
+</head>
+<body>
+  <center><h1>Password protected video</h1></center>
+  <div class="container">
+    <div class="center" id="passwordcontainer">
+      <input id="in" oninput="main();" autocomplete="off" readonly onfocus="this.removeAttribute('readonly');"placeholder="Enter password" autofocus>
+      <video style="border:1px solid blue;background:darkgray;z-index: -5">
+      </video>
+    </div>
+    <div class="center"style="color:transparent;"id="videocontainer">
+    </div>
+
+
+    <div style="display:none">
+      <video controls autoplay style="opacity:0;outline:none;text-decoration:none;border:none;font-size:1em" src="https://files.trom.tf/s/fHSRMbHCdwng8L4/download" onplay="this.style.opacity='1';" oncanplay="this.style.opacity='1';" poster="">
+        Your browser does not support HTML video playback!
+      </video>
+    </div>
+
+  </div>
+
+
+  <script language="JavaScript1.2">
+
+  <!--
+
+function main() {
+
+
+
+  function get_password() {
+
+    orig_pass = document.getElementById('in').value;
+
+    if (orig_pass!=null && orig_pass!="")
+
+    password = new Array(orig_pass.length);
+
+    for(i=0; i<orig_pass.length; i++) {
+
+      password[i] = orig_pass.charCodeAt(i);
+
+    }
+
+    return password;
+
+  }
+
+
+
+  password = get_password();
+
+
+orig = unescape("%201%3Be%3Cf%3Dtr%22ccr%3Aop/ssssol.elbtomf.l8StfRHcnwpCnd%3Bod%204o/n%22dlo%22a%3Btanpyleas-h.io1.tloe%3Bcyni%3Dt%3A%3D%20e%3Bo%22osl%3Bnapepiitshe%27eiy.lrotncyit%22%22a%27%20%3Bs%20ryt%3Deoom%3Dm%20m%3Aw%20t%20%20%20teborr%20os%20%3Aedrt%20oe%20tnaiooprpoaL%3AT%20Mda%20oepoeacobkashataaamhhvahh%20mhohhhl%3C%21%20hmhp%3E%20a%20%20%20yideveia%20%200%20LngeYiulxwtoesnr%20codstn%3Dn%20iuyrsbteHcnpnvrd%27-%27nlfyadn%3A%20za%22tysa%22atu.thhha%20oih/h1%22%3Domt%20syp/%20//%3Eu%22HoM");
+    orig = orig.split("");
+
+
+
+  passnum = orig.length % password.length;
+
+  for(i=orig.length-1; i>=0; i--) {
+
+
+
+    passnum--;
+
+    if (passnum == -1) passnum = password.length - 1;
+
+
+
+    pos1 = i;
+
+    pos2 = i + password[passnum];
+
+
+
+    if (pos2 >= orig.length) continue;
+
+
+
+    char1 = orig[pos1];
+
+    char2 = orig[pos2];
+
+
+
+    orig[pos2] = char1;
+
+    orig[pos1] = char2;
+
+
+
+  }
+
+
+
+  orig1 = "";
+
+  for(i=0;i<orig.length;i++) {
+
+    orig1 = orig1 + orig[i];
+
+  }
+
+  orig1 = orig1.replace(/mmm/g,"\r\n");
+
+
+
+  document.getElementById('videocontainer').innerHTML=(orig1);
+
+  if(orig1.includes("video")){  document.getElementById('passwordcontainer').style.display="none";}
+
+
+
+}
+  //-->
+
+
+  </script>
+
+
+</body>
+
+
+
+
+</html>
