@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title></title>
+    <style media="screen">
+    body{background: #aece32;}
+      input, h1 {width:90vw;display:block;margin:auto}
+      input:focus{  background-color: #000; /*Highlight Color*/
+        color: #fff; /*Text Color*/}
+      iframe{display:block;margin:auto;height: 60%;width: auto;
+      #outputlink{caret-color: transparent}
+      input::selection {
+  background-color: #000; /*Highlight Color*/
+  color: #fff; /*Text Color*/
+}
+    </style>
+  </head>
+  <body>
+    <script type="text/javascript">
+      document.getElementById('url').addEventListener('keydown',function(event){
+        if(event.which==13){changeurl()}
+      })
+function changeurl(x){
+  instance='vid.puffyan.us'
+document.getElementById('iframe').src=x.value;
+document.getElementById('outputlink').value=x.value.replace('www.','').replace('youtube.com', instance).replace('youtu.be', instance).replace('youtube-nocookie.com/embed/', instance+'/latest_version?id=');
+if(x.value.includes('embed')){document.getElementById('outputlink').value+='&itag=22&local=true';}
+if(x.value.includes('youtube.com')||x.value.includes('youtu.be')){document.getElementById('outputlink').value=x.value.replace('youtu.be/',instance+'/watch?v=')}
+}
+    </script>
+    <script type="text/javascript">
+function show(){
+
+document.getElementById('link').innerHTML=document.getElementById('iframe').src;
+}
+    </script>
+    <br>
+    <input id="url" autofocus onkeyup="changeurl(this)" placeholder="youtube link" name="" value="">
+
+    <br>
+    <input id="outputlink" name="" value="">
+    <br>
+<iframe controls id="iframe" sandbox src="" width="" height=""></iframe>
+
+  </body>
+</html>
